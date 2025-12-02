@@ -1,3 +1,22 @@
-{:paths ["src" "resources"]
- :deps  {org.clojure/math.combinatorics {:mvn/version "0.3.0"}
-         criterium/criterium            {:mvn/version "0.4.6"}}}
+{:paths      ["src" "resources"]
+ :test-paths ["test"]
+ :deps       {criterium/criterium            {:mvn/version "0.4.6"}
+              org.clojure/math.combinatorics {:mvn/version "0.3.0"}}
+ :aliases    {:test-paths ["test"]
+
+              ;; clj -X:watch-test
+              :watch-test {:extra-deps  {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
+                           :exec-fn     kaocha.runner/exec-fn
+                           :exec-args   {:watch?     true
+                                         :reporter   [kaocha.report.progress/report]
+                                         :fail-fast? true
+                                         :tests      [{:id           :integration
+                                                       :test-paths   ["test"]
+                                                       :source-paths ["src" "resources"]
+                                                       :skip-meta    [:skip]
+                                                       :focus-meta   [:focus]}]}
+                           :extra-paths [:test-paths]}
+
+              ;; for IDE integration
+              :dev        {:extra-deps  {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
+                           :extra-paths [:test-paths]}}}
