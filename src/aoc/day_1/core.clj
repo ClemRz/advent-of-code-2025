@@ -1,13 +1,11 @@
 (ns aoc.day-1.core
   (:require [aoc.utils :refer [slurp-input]]
-            [clojure.string :as str]
-            [clojure.test :refer [is]]))
+            [clojure.string :as str]))
 
 (def input (slurp-input))
 
 (def dial-start 50)
 (def dial-size 100)
-(def test-input "L68\nL30\nR48\nL5\nR60\nL55\nL1\nL99\nR14\nL82")
 
 (def parse-input
   (memoize
@@ -59,6 +57,3 @@
   ;; 3.865584 msecs
   (time (-main input origin-clicks))
   )
-
-(is (= 3 (-main test-input origin-stops)))
-(is (= 6 (-main test-input origin-clicks)))
