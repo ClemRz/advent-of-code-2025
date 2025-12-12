@@ -28,4 +28,5 @@ This year my personal goal is to solve each part under one second of runtime.
 | 8   | 557 ms ✓ | 758 ms ✓ |                                       |
 | 9   | 172 ms ✓ | 9318 ms | IDK how to make part 2 faster         |
 | 10 | 3646 ms | | (ノಥ,_｣ಥ)ノ彡┻━┻ |
+| 11 | 7 ms ✓ | 13 ms ✓ | |
 
